@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piecemeal Fitness App</title>
+</head>
+<body>
+    <h1>Piecemeal Fitness App</h1>
+    <h2>Log Your Workouts</h2>
+    <form action="/add_workout" method="post">
+        <label for="workout_name">Workout Name:</label><br>
+        <input type="text" id="workout_name" name="workout_name"><br>
+        <label for="duration">Duration (minutes):</label><br>
+        <input type="number" id="duration" name="duration"><br>
+        <label for="calories">Calories Burned:</label><br>
+        <input type="number" id="calories" name="calories"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Your Workouts</h2>
+    <ul>
+        {% for workout in workouts %}
+        <li>{{ workout.workout_name }} - Duration: {{ workout.duration }} minutes, Calories Burned: {{ workout.calories }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
